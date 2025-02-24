@@ -1,6 +1,5 @@
 {
   "name": "seneca_frontend",
-  "private": true,
   "version": "0.0.0",
   "homepage": "https://JosephAdamson.github.io/seneca-learning-frontend",
   "type": "module",
