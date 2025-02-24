@@ -29,7 +29,6 @@ export default function ToggleContainer({
     answerAndOptions,
     togglePositions,
 }: ToggleContainerProps) {
-    const [focusedToggleIndex, setFocusedToggleIndex] = useState<number>(0);
     const [isCorrectOptions, setIsCorrectOptions] = useState<{
         [key: string]: boolean;
     }>({});
