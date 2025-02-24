@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     outDir: "./build"
   },
-  base: "/seneca-learning/",
+  base: "/seneca-learning-frontend/",
   plugins: [
     react(),
     tailwindcss()
