@@ -11,7 +11,7 @@ interface ToggleContainerProps {
 const GRADIENTS = [
     "bg-gradient-to-b from-[#f2b496] to-[#eb8069]",
     "bg-gradient-to-b from-[#EEB876] to-[#F16C31]",
-    "bg-gradient-to-b from-amber-200 to-yellow-400",
+    "bg-gradient-to-b from-amber-200 to-yellow-500",
     "bg-gradient-to-b from-[#76e0c4] to-[#64d2d1]",
 ];
 
@@ -87,11 +87,11 @@ export default function ToggleContainer({
 
     useEffect(() => {
         computeBackgroundGradient()
-        // check thresoholds
     }, [isCorrectOptions]);
 
     return (
         <div
+            aria-label="toggle-container"
             className={`h-full w-full flex flex-col transition-colors duration-300
             items-center justify-center gap-8 ${backgroundGradient}`}
         >

@@ -1,5 +1,7 @@
 # Frontend challenge for Seneca Learning
 
+The live demo is [here](https://josephadamson.github.io/seneca-learning-frontend/)
+
 ## Stack
 - React
 - Typescript
@@ -20,8 +22,3 @@
     - I've included both versions of the toggle component (2 and 3 options) in the demo. Both are wrapped in a component (purely for display purposes) that lets you switch between them just click the icon in the top right corner.
 
     - To make it more accessible each toggle bar has a keydown listener. On focus use the arrow keys (left and right for desktop and up and down for mobile) to switch between options.  
-
-    - I've added some tests. To run them clone the project and run
-    ```
-    npm run test
-    ```

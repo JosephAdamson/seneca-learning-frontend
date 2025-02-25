@@ -75,6 +75,7 @@ export default function ToggleBar({
 
     return (
         <button
+            aria-role="toggle-bar-button"
             className="flex flex-col sm:flex-row w-full xl:w-2/3 relative rounded-xl sm:rounded-4xl 
             focus:shadow-[inset_0_6px_6px_rgba(0,0,0,0.1),0_6px_6px_rgba(0,0,0,0.1)] 
             focus:outline-0 border-2 border-custom-border"
