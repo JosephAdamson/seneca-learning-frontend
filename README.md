@@ -17,8 +17,6 @@ The live demo is [here](https://josephadamson.github.io/seneca-learning-frontend
 - I changed the shape of the vertical toggles in mobile mode slightly.
 
 - Extension tasks
-    - I put the shuffling logic in a separate component that wraps around the toggle container to maintain some separation of concerns.
-
-    - I've included both versions of the toggle component (2 and 3 options) in the demo. Both are wrapped in a component (purely for display purposes) that lets you switch between them just click the icon in the top right corner.
+    - I've included both versions of the toggle component (2 and 3 options) in the demo. Both are wrapped in a component (purely for display purposes) that lets you switch between them just click the icon in the top right corner. <span style="color:#929da1">After some feed back I've changed the shuffling logic for the data, which happens separately from the components to keep them pure and to avoid any accidental reshuffling</span>.
 
     - To make it more accessible each toggle bar has a keydown listener. On focus use the arrow keys (left and right for desktop and up and down for mobile) to switch between options.  

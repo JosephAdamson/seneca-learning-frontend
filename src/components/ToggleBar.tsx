@@ -26,17 +26,37 @@ export default function ToggleBar({
     setCorrectHandler,
     isLocked
 }: ToggleBarProps) {
-    const [thumbPosIndex, setThumbPos] = useState<number>(
+    //--------state--------
+    const [thumbPosIndex, setThumbPosIndex] = useState<number>(
         initialThumPos ? initialThumPos : 0
     );
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 620);
 
     const shiftThumbHandler = (index: number) => {
-        setThumbPos(index);
+        setThumbPosIndex(index);
     };
 
-    // switch between thumb styles (horizontal/veritcal) without 
-    // having to render the whole component.
+    //---------handlers------
+    // keydown handler for toggling the thumb left and right.
+    const keyDownHandler: KeyboardEventHandler<HTMLButtonElement> = (e) => {
+        if (window.innerWidth < 640) {
+            if (e.key == "ArrowUp" && thumbPosIndex > 0) {
+                setThumbPosIndex((prev) => prev - 1);
+            }
+            if (e.key == "ArrowDown" && thumbPosIndex < options.length - 1) {
+                setThumbPosIndex((prev) => prev + 1);
+            }
+        } else {
+            if (e.key == "ArrowLeft" && thumbPosIndex > 0) {
+                setThumbPosIndex((prev) => prev - 1);
+            }
+            if (e.key == "ArrowRight" && thumbPosIndex < options.length - 1) {
+                setThumbPosIndex((prev) => prev + 1);
+            }
+        }
+    };
+
+    //---------hooks--------
     useEffect(() => {
         const handleResize = () => {
             window.innerWidth < 640 
@@ -54,31 +74,12 @@ export default function ToggleBar({
             : setCorrectHandler(answer, false);
     }, [thumbPosIndex]);
 
-    // keydown handler for toggling the thumb left and right.
-    const keyDownHandler: KeyboardEventHandler<HTMLButtonElement> = (e) => {
-        if (window.innerWidth < 640) {
-            if (e.key == "ArrowUp" && thumbPosIndex > 0) {
-                setThumbPos((prev) => prev - 1);
-            }
-            if (e.key == "ArrowDown" && thumbPosIndex < options.length - 1) {
-                setThumbPos((prev) => prev + 1);
-            }
-        } else {
-            if (e.key == "ArrowLeft" && thumbPosIndex > 0) {
-                setThumbPos((prev) => prev - 1);
-            }
-            if (e.key == "ArrowRight" && thumbPosIndex < options.length - 1) {
-                setThumbPos((prev) => prev + 1);
-            }
-        }
-    };
-
     return (
         <button
-            aria-role="toggle-bar-button"
+            aria-roledescription="toggle-bar-button"
             className="flex flex-col sm:flex-row w-full xl:w-2/3 relative rounded-xl sm:rounded-4xl 
             focus:shadow-[inset_0_6px_6px_rgba(0,0,0,0.1),0_6px_6px_rgba(0,0,0,0.1)] 
-            focus:outline-0 border-2 border-custom-border"
+            focus:outline-0 border-2 border-custom-border hover:cursor-pointer"
             onKeyDown={(e) => {
                 if (!isLocked) {
                     keyDownHandler(e)

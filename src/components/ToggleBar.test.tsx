@@ -16,4 +16,3 @@ describe("ToggleBar", () => {
         expect(screen.getByText("Ribosomes")).toBeInTheDocument();
     });
 });
-
